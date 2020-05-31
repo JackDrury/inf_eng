@@ -23,4 +23,5 @@ data PreTreated = PreTreated { rule_list :: [Rule]
 
 
 infer :: PreTreated -> AtomNames -> SetOfAtomNames
-infer pretreated atoms = do 
+infer [] _  = {}
+infer xs {} = foldr 
