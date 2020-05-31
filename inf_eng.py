@@ -1,5 +1,5 @@
 """
-We assume there are no loops and that each rule has a single atomic conclusion
+We assume that each rule has a single atomic conclusion
 
 For example1:
 we start with
@@ -66,8 +66,8 @@ def infer(pretreated, assumps):
             q.appendleft(atom_map[i])    # (only if it appears in the rules)
     while q:                             # While the queue is not empty
         a = q.pop()                      # pop value of an atom
-        if not atoms[a][0]:              # set it to True if it isn't already
-            atoms[a][0] = True
+        if not atoms[a][0]:              # If True, do nothing as it has already been actioned
+            atoms[a][0] = True           # Otherwise set it to True
             for j in atoms[a][1]:        # reduce each of the rules it is a premise for
                 rules[j][0] -= 1
                 if rules[j][0] == 0:     # If the rule has no false premises add its conclusion
